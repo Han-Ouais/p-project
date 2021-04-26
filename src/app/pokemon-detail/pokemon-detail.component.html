@@ -7,12 +7,12 @@
   <figure class="pokemon_illustration">
     <div class="default_illustration">
       <img src="{{ pokemon.sprites.front_default }}" />
-      <small>Forme de base</small>
+      <small>Base form</small>
     </div>
 
     <div class="shiny_illustration">
       <img src="{{ pokemon.sprites.front_shiny }}" />
-      <small>Forme chromatique</small>
+      <small>Shiny form</small>
     </div>
 
     <!-- AJOUTER LA CLASSE SPECIES ET APPELER LE TEXTE PAR HTTP
@@ -26,10 +26,10 @@
 </section>
 
 <section class="stats-presentation" *ngIf="pokemon != null">
-  <h2>Statistiques</h2>
+  <h2>Statistics</h2>
   <div class="stats">
     <div class="stat stat--pv">
-      <p>PV :</p>
+      <p>HP :</p>
       <div
         class="bar"
         [ngClass]="{

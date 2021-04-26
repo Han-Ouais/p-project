@@ -1,8 +1,8 @@
-<table *ngIf="pokemonList.length != 0; else template_empty">
+<table *ngIf="pokemonList.length != 0; else template_empty" cellspacing="0">
   <thead>
     <tr>
       <th>#</th>
-      <th>Pokémon</th>
+      <th>Pokemon</th>
     </tr>
   </thead>
 
@@ -11,10 +11,13 @@
       <th>{{ pokemon.id }}</th>
       <td>
         <figure>
-          <img src="{{ pokemon.sprites.front_default }}" />
+          <img
+            src="{{ pokemon.sprites.front_default }}"
+            class="pokemon__illustration"
+          />
           <figcaption>
             <h3 class="capitalize">{{ pokemon.name }}</h3>
-            <a [routerLink]="'/' + pokemon.id"><small>Voir plus...</small></a>
+            <a [routerLink]="'/' + pokemon.id"><small>Show more...</small></a>
           </figcaption>
         </figure>
       </td>
@@ -23,5 +26,5 @@
 </table>
 
 <ng-template #template_empty>
-  <p>Aucun pokémon trouvé...</p>
+  <p>No Pokemon found...</p>
 </ng-template>
