@@ -1,0 +1,27 @@
+<table *ngIf="pokemonList.length != 0; else template_empty">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Pokémon</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let pokemon of pokemonList" id="{{ pokemon.name }}">
+      <th>{{ pokemon.id }}</th>
+      <td>
+        <figure>
+          <img src="{{ pokemon.sprites.front_default }}" />
+          <figcaption>
+            <h3 class="capitalize">{{ pokemon.name }}</h3>
+            <a [routerLink]="'/' + pokemon.id"><small>Voir plus...</small></a>
+          </figcaption>
+        </figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #template_empty>
+  <p>Aucun pokémon trouvé...</p>
+</ng-template>

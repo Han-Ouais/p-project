@@ -1,0 +1,138 @@
+<section
+  *ngIf="pokemon != null; else nullTemplate"
+  class="pokemon-presentation"
+>
+  <h1 class="capitalize">{{ pokemon.name }}</h1>
+
+  <figure class="pokemon_illustration">
+    <div class="default_illustration">
+      <img src="{{ pokemon.sprites.front_default }}" />
+      <small>Forme de base</small>
+    </div>
+
+    <div class="shiny_illustration">
+      <img src="{{ pokemon.sprites.front_shiny }}" />
+      <small>Forme chromatique</small>
+    </div>
+
+    <!-- AJOUTER LA CLASSE SPECIES ET APPELER LE TEXTE PAR HTTP
+    <figcaption>
+      <div>
+        <p></p>
+      </div>
+    </figcaption>
+    -->
+  </figure>
+</section>
+
+<section class="stats-presentation" *ngIf="pokemon != null">
+  <h2>Statistiques</h2>
+  <div class="stats">
+    <div class="stat stat--pv">
+      <p>PV :</p>
+      <div
+        class="bar"
+        [ngClass]="{
+          'bar--red': pokemon.stats[0].base_stat <= 30,
+          'bar--orange': pokemon.stats[0].base_stat < 50,
+          'bar--yellow': pokemon.stats[0].base_stat < 65,
+          'bar--yellowGreen': pokemon.stats[0].base_stat < 85,
+          'bar--green': pokemon.stats[0].base_stat < 115,
+          'bar--blue': pokemon.stats[0].base_stat >= 115
+        }"
+        style="width: calc(2px*{{ pokemon.stats[0].base_stat }})"
+      >
+        <p>{{ pokemon.stats[0].base_stat }}</p>
+      </div>
+    </div>
+    <div class="stat stat--atk">
+      <p>Attack :</p>
+      <div
+        class="bar"
+        [ngClass]="{
+          'bar--red': pokemon.stats[1].base_stat <= 30,
+          'bar--orange': pokemon.stats[1].base_stat < 50,
+          'bar--yellow': pokemon.stats[1].base_stat < 65,
+          'bar--yellowGreen': pokemon.stats[1].base_stat < 85,
+          'bar--green': pokemon.stats[1].base_stat < 115,
+          'bar--blue': pokemon.stats[1].base_stat >= 115
+        }"
+        style="width: calc(2px*{{ pokemon.stats[1].base_stat }})"
+      >
+        <p>{{ pokemon.stats[1].base_stat }}</p>
+      </div>
+    </div>
+    <div class="stat stat--def">
+      <p>Defense :</p>
+      <div
+        class="bar"
+        [ngClass]="{
+          'bar--red': pokemon.stats[2].base_stat <= 30,
+          'bar--orange': pokemon.stats[2].base_stat < 50,
+          'bar--yellow': pokemon.stats[2].base_stat < 65,
+          'bar--yellowGreen': pokemon.stats[2].base_stat < 85,
+          'bar--green': pokemon.stats[2].base_stat < 115,
+          'bar--blue': pokemon.stats[2].base_stat >= 115
+        }"
+        style="width: calc(2px*{{ pokemon.stats[2].base_stat }})"
+      >
+        <p>{{ pokemon.stats[2].base_stat }}</p>
+      </div>
+    </div>
+    <div class="stat stat--satk">
+      <p>Special Attack :</p>
+      <div
+        class="bar"
+        [ngClass]="{
+          'bar--red': pokemon.stats[3].base_stat <= 30,
+          'bar--orange': pokemon.stats[3].base_stat < 50,
+          'bar--yellow': pokemon.stats[3].base_stat <= 65,
+          'bar--yellowGreen': pokemon.stats[3].base_stat < 85,
+          'bar--green': pokemon.stats[3].base_stat < 115,
+          'bar--blue': pokemon.stats[3].base_stat >= 115
+        }"
+        style="width: calc(2px*{{ pokemon.stats[3].base_stat }})"
+      >
+        <p>{{ pokemon.stats[3].base_stat }}</p>
+      </div>
+    </div>
+    <div class="stat stat--sdef">
+      <p>Special Defense :</p>
+      <div
+        class="bar"
+        [ngClass]="{
+          'bar--red': pokemon.stats[4].base_stat <= 30,
+          'bar--orange': pokemon.stats[4].base_stat < 50,
+          'bar--yellow': pokemon.stats[4].base_stat < 65,
+          'bar--yellowGreen': pokemon.stats[4].base_stat < 85,
+          'bar--green': pokemon.stats[4].base_stat < 115,
+          'bar--blue': pokemon.stats[4].base_stat >= 115
+        }"
+        style="width: calc(2px*{{ pokemon.stats[4].base_stat }})"
+      >
+        <p>{{ pokemon.stats[4].base_stat }}</p>
+      </div>
+    </div>
+    <div class="stat stat--spd">
+      <p>Speed :</p>
+      <div
+        class="bar"
+        [ngClass]="{
+          'bar--red': pokemon.stats[5].base_stat <= 30,
+          'bar--orange': pokemon.stats[5].base_stat < 50,
+          'bar--yellow': pokemon.stats[5].base_stat < 65,
+          'bar--yellowGreen': pokemon.stats[5].base_stat < 85,
+          'bar--green': pokemon.stats[5].base_stat < 115,
+          'bar--blue': pokemon.stats[5].base_stat >= 115
+        }"
+        style="width: calc(2px*{{ pokemon.stats[5].base_stat }})"
+      >
+        <p>{{ pokemon.stats[5].base_stat }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #nullTemplate>
+  <h1>Aucun Pokémon trouvé...</h1>
+</ng-template>

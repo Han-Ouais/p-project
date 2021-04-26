@@ -1,0 +1,36 @@
+.capitalize {
+  text-transform: capitalize;
+}
+
+.bar {
+  padding: 0.75rem;
+  background-color: greenyellow;
+}
+
+.bar > p {
+  margin: 0;
+}
+
+.bar--blue {
+  background-color: rgb(0, 157, 255);
+}
+
+.bar--green {
+  background-color: rgb(0, 255, 0);
+}
+
+.bar--yellowGreen {
+  background-color: rgb(208, 255, 0);
+}
+
+.bar--yellow {
+  background-color: rgb(255, 230, 0);
+}
+
+.bar--orange {
+  background-color: rgb(255, 119, 0);
+}
+
+.bar--red {
+  background-color: rgb(255, 25, 0);
+}
